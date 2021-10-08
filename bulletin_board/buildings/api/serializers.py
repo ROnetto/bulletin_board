@@ -15,12 +15,20 @@ class BuildingSerializer(BasicSerializer):
 
     inhabitants = UserSerializer(many=True, read_only=True)
 
+    def create(self, validated_data):
+        inhabitants = validated_data.pop("inhabitants_id")
+        building = Building.objects.create(**validated_data)
+        for user in inhabitants:
+            building.inhabitants.add(user)
+        return building
+
     class Meta:
         model = Building
         fields = [
             "id",
             "created",
             "modified",
+            "uuid",
             "community_id",
             "community",
             "name",

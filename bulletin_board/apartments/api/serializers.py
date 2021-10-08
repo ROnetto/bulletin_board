@@ -31,6 +31,7 @@ class ApartmentSerializer(BasicSerializer):
             "id",
             "created",
             "modified",
+            "uuid",
             "building_floor_id",
             "building_floor",
             "number",

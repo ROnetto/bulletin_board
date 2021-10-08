@@ -9,4 +9,4 @@ User = get_user_model()
 class CommunitySerializer(BasicSerializer):
     class Meta:
         model = Community
-        fields = ["id", "created", "modified", "name"]
+        fields = ["id", "created", "modified", "uuid", "name"]
