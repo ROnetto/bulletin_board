@@ -1,9 +1,9 @@
-.. Community Manager documentation master file, created by
+.. Bulletin Board documentation master file, created by
    sphinx-quickstart.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Community Manager's documentation!
+Welcome to Bulletin Board's documentation!
 ======================================================================
 
 .. toctree::

@@ -6,8 +6,8 @@ from pathlib import Path
 import environ
 
 ROOT_DIR = Path(__file__).resolve(strict=True).parent.parent.parent
-# community_manager/
-APPS_DIR = ROOT_DIR / "community_manager"
+# bulletin_board/
+APPS_DIR = ROOT_DIR / "bulletin_board"
 env = environ.Env()
 
 READ_DOT_ENV_FILE = env.bool("DJANGO_READ_DOT_ENV_FILE", default=False)
@@ -74,11 +74,11 @@ THIRD_PARTY_APPS = [
 ]
 
 LOCAL_APPS = [
-    "community_manager.apartments.apps.ApartmentsConfig",
-    "community_manager.building_floors.apps.BuildingFloorsConfig",
-    "community_manager.buildings.apps.BuildingsConfig",
-    "community_manager.communities.apps.CommunitiesConfig",
-    "community_manager.users.apps.UsersConfig",
+    "bulletin_board.apartments.apps.ApartmentsConfig",
+    "bulletin_board.building_floors.apps.BuildingFloorsConfig",
+    "bulletin_board.buildings.apps.BuildingsConfig",
+    "bulletin_board.communities.apps.CommunitiesConfig",
+    "bulletin_board.users.apps.UsersConfig",
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -87,7 +87,7 @@ INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 # MIGRATIONS
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#migration-modules
-MIGRATION_MODULES = {"sites": "community_manager.contrib.sites.migrations"}
+MIGRATION_MODULES = {"sites": "bulletin_board.contrib.sites.migrations"}
 
 # AUTHENTICATION
 # ------------------------------------------------------------------------------
@@ -186,7 +186,7 @@ TEMPLATES = [
                 "django.template.context_processors.static",
                 "django.template.context_processors.tz",
                 "django.contrib.messages.context_processors.messages",
-                "community_manager.utils.context_processors.settings_context",
+                "bulletin_board.utils.context_processors.settings_context",
             ],
         },
     }
@@ -267,9 +267,9 @@ ACCOUNT_EMAIL_REQUIRED = True
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
 ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
-ACCOUNT_ADAPTER = "community_manager.users.adapters.AccountAdapter"
+ACCOUNT_ADAPTER = "bulletin_board.users.adapters.AccountAdapter"
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
-SOCIALACCOUNT_ADAPTER = "community_manager.users.adapters.SocialAccountAdapter"
+SOCIALACCOUNT_ADAPTER = "bulletin_board.users.adapters.SocialAccountAdapter"
 
 # django-rest-framework
 # -------------------------------------------------------------------------------

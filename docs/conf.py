@@ -26,7 +26,7 @@ django.setup()
 
 # -- Project information -----------------------------------------------------
 
-project = "Community Manager"
+project = "Bulletin Board"
 copyright = """2021, Rodrigo Onetto"""
 author = "Rodrigo Onetto"
 

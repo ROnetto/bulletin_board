@@ -10,7 +10,7 @@ if "%SPHINXBUILD%" == "" (
 )
 set SOURCEDIR=_source
 set BUILDDIR=_build
-set APP=..\community_manager
+set APP=..\bulletin_board
 
 if "%1" == "" goto help
 

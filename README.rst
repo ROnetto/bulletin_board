@@ -1,4 +1,4 @@
-Community Manager
+Bulletin Board
 =================
 
 Behold My Awesome Project!
@@ -39,7 +39,7 @@ Running type checks with mypy:
 
 ::
 
-  $ mypy community_manager
+  $ mypy bulletin_board
 
 Test coverage
 ^^^^^^^^^^^^^

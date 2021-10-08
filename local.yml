@@ -9,7 +9,7 @@ services:
     build:
       context: .
       dockerfile: ./compose/local/django/Dockerfile
-    image: community_manager_local_django
+    image: bulletin_board_local_django
     container_name: community_django
     depends_on:
       - postgres
@@ -26,7 +26,7 @@ services:
     build:
       context: .
       dockerfile: ./compose/production/postgres/Dockerfile
-    image: community_manager_production_postgres
+    image: bulletin_board_production_postgres
     container_name: community_postgres
     volumes:
       - local_postgres_data:/var/lib/postgresql/data:Z
@@ -35,7 +35,7 @@ services:
       - ./.envs/.local/.postgres
 
   docs:
-    image: community_manager_local_docs
+    image: bulletin_board_local_docs
     container_name: community_docs
     build:
       context: .
@@ -45,7 +45,7 @@ services:
     volumes:
       - ./docs:/docs:z
       - ./config:/app/config:z
-      - ./community_manager:/app/community_manager:z
+      - ./bulletin_board:/app/bulletin_board:z
     ports:
       - "7000:7000"
     command: /start-docs

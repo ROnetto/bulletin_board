@@ -1,8 +1,8 @@
 from django.conf import settings
 from rest_framework.routers import DefaultRouter, SimpleRouter
 
-from community_manager.communities.api.views import CommunityViewSet
-from community_manager.users.api.views import UserViewSet
+from bulletin_board.communities.api.views import CommunityViewSet
+from bulletin_board.users.api.views import UserViewSet
 
 if settings.DEBUG:
     router = DefaultRouter()

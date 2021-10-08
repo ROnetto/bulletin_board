@@ -62,12 +62,12 @@ GS_BUCKET_NAME = env("DJANGO_GCP_STORAGE_BUCKET_NAME")
 GS_DEFAULT_ACL = "publicRead"
 # STATIC
 # ------------------------
-STATICFILES_STORAGE = "community_manager.utils.storages.StaticRootGoogleCloudStorage"
+STATICFILES_STORAGE = "bulletin_board.utils.storages.StaticRootGoogleCloudStorage"
 COLLECTFAST_STRATEGY = "collectfast.strategies.gcloud.GoogleCloudStrategy"
 STATIC_URL = f"https://storage.googleapis.com/{GS_BUCKET_NAME}/static/"
 # MEDIA
 # ------------------------------------------------------------------------------
-DEFAULT_FILE_STORAGE = "community_manager.utils.storages.MediaRootGoogleCloudStorage"
+DEFAULT_FILE_STORAGE = "bulletin_board.utils.storages.MediaRootGoogleCloudStorage"
 MEDIA_URL = f"https://storage.googleapis.com/{GS_BUCKET_NAME}/media/"
 
 # TEMPLATES
@@ -87,12 +87,12 @@ TEMPLATES[-1]["OPTIONS"]["loaders"] = [  # type: ignore[index] # noqa F405
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#default-from-email
 DEFAULT_FROM_EMAIL = env(
-    "DJANGO_DEFAULT_FROM_EMAIL", default="Community Manager <noreply@ronetto.com>"
+    "DJANGO_DEFAULT_FROM_EMAIL", default="Bulletin Board <noreply@ronetto.com>"
 )
 # https://docs.djangoproject.com/en/dev/ref/settings/#server-email
 SERVER_EMAIL = env("DJANGO_SERVER_EMAIL", default=DEFAULT_FROM_EMAIL)
 # https://docs.djangoproject.com/en/dev/ref/settings/#email-subject-prefix
-EMAIL_SUBJECT_PREFIX = env("DJANGO_EMAIL_SUBJECT_PREFIX", default="[Community Manager]")
+EMAIL_SUBJECT_PREFIX = env("DJANGO_EMAIL_SUBJECT_PREFIX", default="[Bulletin Board]")
 
 # ADMIN
 # ------------------------------------------------------------------------------
