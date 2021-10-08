@@ -8,6 +8,8 @@ from community_manager.buildings.models import Building
 User = get_user_model()
 
 
-class BuildingViewSet(RetrieveModelMixin, ListModelMixin, UpdateModelMixin, GenericViewSet):
+class BuildingViewSet(
+    RetrieveModelMixin, ListModelMixin, UpdateModelMixin, GenericViewSet
+):
     serializer_class = BuildingSerializer
     queryset = Building.objects.all()

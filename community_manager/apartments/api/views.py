@@ -8,6 +8,8 @@ from community_manager.apartments.models import Apartment
 User = get_user_model()
 
 
-class ApartmentViewSet(RetrieveModelMixin, ListModelMixin, UpdateModelMixin, GenericViewSet):
+class ApartmentViewSet(
+    RetrieveModelMixin, ListModelMixin, UpdateModelMixin, GenericViewSet
+):
     serializer_class = ApartmentSerializer
     queryset = Apartment.objects.all()

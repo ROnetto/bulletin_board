@@ -8,6 +8,8 @@ from community_manager.communities.models import Community
 User = get_user_model()
 
 
-class CommunityViewSet(RetrieveModelMixin, ListModelMixin, UpdateModelMixin, GenericViewSet):
+class CommunityViewSet(
+    RetrieveModelMixin, ListModelMixin, UpdateModelMixin, GenericViewSet
+):
     serializer_class = CommunitySerializer
     queryset = Community.objects.all()

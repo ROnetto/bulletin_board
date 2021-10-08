@@ -13,11 +13,13 @@ class ApartmentSerializer(BasicSerializer):
     building_floor_id = serializers.IntegerField(write_only=True)
     building_floor = CommunitySerializer(many=False, read_only=True)
 
-    inhabitants_id = serializers.PrimaryKeyRelatedField(queryset=User.objects.all(), write_only=True, many=True)
+    inhabitants_id = serializers.PrimaryKeyRelatedField(
+        queryset=User.objects.all(), write_only=True, many=True
+    )
     inhabitants = UserSerializer(many=True, read_only=True)
 
     def create(self, validated_data):
-        inhabitants = validated_data.pop('inhabitants_id')
+        inhabitants = validated_data.pop("inhabitants_id")
         apartment = Apartment.objects.create(**validated_data)
         for user in inhabitants:
             apartment.inhabitants.add(user)
@@ -25,5 +27,13 @@ class ApartmentSerializer(BasicSerializer):
 
     class Meta:
         model = Apartment
-        fields = ["id", "created", "modified", "building_floor_id", "building_floor", "number", "inhabitants_id",
-                  "inhabitants"]
+        fields = [
+            "id",
+            "created",
+            "modified",
+            "building_floor_id",
+            "building_floor",
+            "number",
+            "inhabitants_id",
+            "inhabitants",
+        ]

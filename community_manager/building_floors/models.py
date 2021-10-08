@@ -1,7 +1,6 @@
 from django.db.models.deletion import PROTECT
 from django.db.models.fields import CharField
 from django.db.models.fields.related import ForeignKey
-
 from django.utils.translation import gettext_lazy as _
 
 from community_manager.buildings.models import Building

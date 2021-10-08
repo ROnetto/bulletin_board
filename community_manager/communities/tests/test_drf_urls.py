@@ -11,7 +11,9 @@ def test_community_detail(community: Community):
         reverse("api:community-detail", kwargs={"username": community.id})
         == f"/api/communities/{community.id}/"
     )
-    assert resolve(f"/api/communities/{community.id}/").view_name == "api:community-detail"
+    assert (
+        resolve(f"/api/communities/{community.id}/").view_name == "api:community-detail"
+    )
 
 
 def test_community_list():
