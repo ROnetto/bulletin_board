@@ -3,10 +3,10 @@ from django.db.models import CharField
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
-from bulletin_board.core.models import BasicModel
+from bulletin_board.core.models import BasicUserModel
 
 
-class User(BasicModel, AbstractUser):
+class User(BasicUserModel, AbstractUser):
     """Default user for Bulletin Board."""
 
     #: First and last name do not cover name patterns around the globe

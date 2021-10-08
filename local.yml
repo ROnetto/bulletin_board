@@ -10,7 +10,7 @@ services:
       context: .
       dockerfile: ./compose/local/django/Dockerfile
     image: bulletin_board_local_django
-    container_name: community_django
+    container_name: bulletin_board_django
     depends_on:
       - postgres
     volumes:
@@ -27,7 +27,7 @@ services:
       context: .
       dockerfile: ./compose/production/postgres/Dockerfile
     image: bulletin_board_production_postgres
-    container_name: community_postgres
+    container_name: bulletin_board_postgres
     volumes:
       - local_postgres_data:/var/lib/postgresql/data:Z
       - local_postgres_data_backups:/backups:z
@@ -36,7 +36,7 @@ services:
 
   docs:
     image: bulletin_board_local_docs
-    container_name: community_docs
+    container_name: bulletin_board_docs
     build:
       context: .
       dockerfile: ./compose/local/docs/Dockerfile

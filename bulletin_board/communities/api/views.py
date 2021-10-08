@@ -11,5 +11,6 @@ User = get_user_model()
 class CommunityViewSet(
     RetrieveModelMixin, ListModelMixin, UpdateModelMixin, GenericViewSet
 ):
+    lookup_field = "uuid"
     serializer_class = CommunitySerializer
     queryset = Community.objects.all()

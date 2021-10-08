@@ -1,5 +1,7 @@
 import pytest
 
+from bulletin_board.communities.models import Community
+from bulletin_board.communities.tests.factories import CommunityFactory
 from bulletin_board.users.models import User
 from bulletin_board.users.tests.factories import UserFactory
 
@@ -12,3 +14,8 @@ def media_storage(settings, tmpdir):
 @pytest.fixture
 def user() -> User:
     return UserFactory()
+
+
+@pytest.fixture
+def community() -> Community:
+    return CommunityFactory()

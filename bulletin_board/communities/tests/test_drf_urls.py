@@ -8,11 +8,12 @@ pytestmark = pytest.mark.django_db
 
 def test_community_detail(community: Community):
     assert (
-        reverse("api:community-detail", kwargs={"username": community.id})
-        == f"/api/communities/{community.id}/"
+        reverse("api:community-detail", kwargs={"uuid": community.uuid})
+        == f"/api/communities/{community.uuid}/"
     )
     assert (
-        resolve(f"/api/communities/{community.id}/").view_name == "api:community-detail"
+        resolve(f"/api/communities/{community.uuid}/").view_name
+        == "api:community-detail"
     )
 
 
