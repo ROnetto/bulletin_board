@@ -330,3 +330,4 @@ community_manager/media/
 .envs/*
 !.envs/.local/
 
+.idea/
