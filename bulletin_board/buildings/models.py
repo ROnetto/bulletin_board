@@ -20,7 +20,9 @@ class Building(BasicModel):
     community = ForeignKey(Community, verbose_name=_("community"), on_delete=PROTECT)
     name = CharField(verbose_name=_("name"), max_length=255)
     address = CharField(verbose_name=_("address"), max_length=255, default="")
-    type = IntegerField(choices=TYPE_CHOICES, default=TYPE_HOUSE)
+    type = IntegerField(
+        verbose_name=_("type"), choices=TYPE_CHOICES, default=TYPE_HOUSE
+    )
 
     inhabitants = ManyToManyField(User, verbose_name=_("inhabitants"))
 

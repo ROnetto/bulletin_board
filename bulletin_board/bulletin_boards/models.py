@@ -10,10 +10,10 @@ from bulletin_board.core.models import BasicModel
 class CommunityBulletinBoard(BasicModel):
     community = ForeignKey(Community, verbose_name=_("community"), on_delete=PROTECT)
 
-    title = CharField(verbose_name=_("name"), max_length=255)
-    text = TextField()
+    title = CharField(verbose_name=_("title"), max_length=255)
+    text = TextField(verbose_name=_("text"))
 
-    expiration_date = DateField()
+    expiration_date = DateField(verbose_name=_("expiration date"))
 
     def __str__(self):
         return f"[{self.community.name}] {self.title}"
@@ -26,10 +26,10 @@ class CommunityBulletinBoard(BasicModel):
 class BuildingBulletinBoard(BasicModel):
     building = ForeignKey(Community, verbose_name=_("building"), on_delete=PROTECT)
 
-    title = CharField(verbose_name=_("name"), max_length=255)
-    text = TextField()
+    title = CharField(verbose_name=_("title"), max_length=255)
+    text = TextField(verbose_name=_("text"))
 
-    expiration_date = DateField()
+    expiration_date = DateField(verbose_name=_("expiration date"))
 
     def __str__(self):
         return f"[{self.building.name}] {self.title}"

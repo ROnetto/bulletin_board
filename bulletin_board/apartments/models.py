@@ -14,7 +14,7 @@ class Apartment(BasicModel):
     building_floor = ForeignKey(
         BuildingFloor, verbose_name=_("building floor"), on_delete=PROTECT
     )
-    number = CharField(verbose_name=_("name"), max_length=255)
+    number = CharField(verbose_name=_("number"), max_length=255)
 
     inhabitants = ManyToManyField(User, verbose_name=_("inhabitants"))
 
