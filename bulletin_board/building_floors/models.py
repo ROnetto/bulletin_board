@@ -12,7 +12,7 @@ class BuildingFloor(BasicModel):
     number = CharField(verbose_name=_("number"), max_length=5)
 
     def __str__(self):
-        return f"[{self.building.name}] {self.number}"
+        return f"{self.building.name} | Floor {self.number}"
 
     class Meta:
         verbose_name = _("Building floor")
