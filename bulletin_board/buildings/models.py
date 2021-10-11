@@ -24,7 +24,13 @@ class Building(BasicModel):
         verbose_name=_("type"), choices=TYPE_CHOICES, default=TYPE_HOUSE
     )
 
-    inhabitants = ManyToManyField(User, verbose_name=_("inhabitants"))
+    inhabitants = ManyToManyField(
+        User, verbose_name=_("inhabitants"), related_name="building_inhabitants"
+    )
+
+    admins = ManyToManyField(
+        User, verbose_name=_("admins"), related_name="building_admins"
+    )
 
     def __str__(self):
         return f"[{self.community.name}] {self.get_type_display()} | {self.address} | {self.name}"

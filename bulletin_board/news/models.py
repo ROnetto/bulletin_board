@@ -7,7 +7,7 @@ from bulletin_board.communities.models import Community
 from bulletin_board.core.models import BasicModel
 
 
-class CommunityBulletinBoard(BasicModel):
+class CommunityNews(BasicModel):
     community = ForeignKey(Community, verbose_name=_("community"), on_delete=PROTECT)
 
     title = CharField(verbose_name=_("title"), max_length=255)
@@ -19,11 +19,11 @@ class CommunityBulletinBoard(BasicModel):
         return f"[{self.community.name}] {self.title}"
 
     class Meta:
-        verbose_name = _("Community bulletin board")
-        verbose_name_plural = _("Community bulletin boards")
+        verbose_name = _("Community news")
+        verbose_name_plural = _("Community news")
 
 
-class BuildingBulletinBoard(BasicModel):
+class BuildingNews(BasicModel):
     building = ForeignKey(Community, verbose_name=_("building"), on_delete=PROTECT)
 
     title = CharField(verbose_name=_("title"), max_length=255)
@@ -35,5 +35,5 @@ class BuildingBulletinBoard(BasicModel):
         return f"[{self.building.name}] {self.title}"
 
     class Meta:
-        verbose_name = _("Building bulletin board")
-        verbose_name_plural = _("Building bulletin boards")
+        verbose_name = _("Building news")
+        verbose_name_plural = _("Building news")

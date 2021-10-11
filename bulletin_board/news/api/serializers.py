@@ -1,20 +1,17 @@
 from rest_framework import serializers
 
 from bulletin_board.buildings.api.serializers import BuildingSerializer
-from bulletin_board.bulletin_boards.models import (
-    BuildingBulletinBoard,
-    CommunityBulletinBoard,
-)
 from bulletin_board.communities.api.serializers import CommunitySerializer
 from bulletin_board.core.serializers import BasicSerializer
+from bulletin_board.news.models import BuildingNews, CommunityNews
 
 
-class CommunityBulletinBoardSerializer(BasicSerializer):
+class CommunityNewsSerializer(BasicSerializer):
     community_id = serializers.IntegerField(write_only=True)
     community = CommunitySerializer(read_only=True)
 
     class Meta:
-        model = CommunityBulletinBoard
+        model = CommunityNews
         fields = [
             "id",
             "created",
@@ -28,12 +25,12 @@ class CommunityBulletinBoardSerializer(BasicSerializer):
         ]
 
 
-class BuildingBulletinBoardSerializer(BasicSerializer):
+class BuildingNewsSerializer(BasicSerializer):
     building_id = serializers.IntegerField(write_only=True)
     building = BuildingSerializer(read_only=True)
 
     class Meta:
-        model = BuildingBulletinBoard
+        model = BuildingNews
         fields = [
             "id",
             "created",
