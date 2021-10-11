@@ -3,8 +3,25 @@ from django.db.models.fields import CharField, DateField, TextField
 from django.db.models.fields.related import ForeignKey
 from django.utils.translation import gettext_lazy as _
 
+from bulletin_board.buildings.models import Building
 from bulletin_board.communities.models import Community
 from bulletin_board.core.models import BasicModel
+
+
+class BuildingNews(BasicModel):
+    building = ForeignKey(Building, verbose_name=_("building"), on_delete=PROTECT)
+
+    title = CharField(verbose_name=_("title"), max_length=255)
+    text = TextField(verbose_name=_("text"))
+
+    expiration_date = DateField(verbose_name=_("expiration date"))
+
+    def __str__(self):
+        return f"[{self.building.name}] {self.title}"
+
+    class Meta:
+        verbose_name = _("Building news")
+        verbose_name_plural = _("Building news")
 
 
 class CommunityNews(BasicModel):
@@ -21,19 +38,3 @@ class CommunityNews(BasicModel):
     class Meta:
         verbose_name = _("Community news")
         verbose_name_plural = _("Community news")
-
-
-class BuildingNews(BasicModel):
-    building = ForeignKey(Community, verbose_name=_("building"), on_delete=PROTECT)
-
-    title = CharField(verbose_name=_("title"), max_length=255)
-    text = TextField(verbose_name=_("text"))
-
-    expiration_date = DateField(verbose_name=_("expiration date"))
-
-    def __str__(self):
-        return f"[{self.building.name}] {self.title}"
-
-    class Meta:
-        verbose_name = _("Building news")
-        verbose_name_plural = _("Building news")

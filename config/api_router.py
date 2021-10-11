@@ -16,9 +16,9 @@ else:
 router.register("apartments", ApartmentViewSet)
 router.register("building_floors", BuildingFloorViewSet)
 router.register("buildings", BuildingViewSet)
-router.register("building_bulletin_boards", BuildingNewsViewSet)
-router.register("community_bulletin_boards", CommunityNewsViewSet)
 router.register("communities", CommunityViewSet)
+router.register("building_news", BuildingNewsViewSet)
+router.register("community_news", CommunityNewsViewSet)
 router.register("users", UserViewSet)
 
 

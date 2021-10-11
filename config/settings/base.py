@@ -77,8 +77,8 @@ LOCAL_APPS = [
     "bulletin_board.apartments.apps.ApartmentsConfig",
     "bulletin_board.building_floors.apps.BuildingFloorsConfig",
     "bulletin_board.buildings.apps.BuildingsConfig",
-    "bulletin_board.news.apps.NewsConfig",
     "bulletin_board.communities.apps.CommunitiesConfig",
+    "bulletin_board.news.apps.NewsConfig",
     "bulletin_board.users.apps.UsersConfig",
     # Your stuff: custom apps go here
 ]

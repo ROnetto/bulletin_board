@@ -19,7 +19,7 @@ class Apartment(BasicModel):
     inhabitants = ManyToManyField(User, verbose_name=_("inhabitants"))
 
     def __str__(self):
-        return f"[{self.building_floor.name}] {self.number}"
+        return f"[{self.building_floor.number}] {self.number}"
 
     class Meta:
         verbose_name = _("Apartment")
