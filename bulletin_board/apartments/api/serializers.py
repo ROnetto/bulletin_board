@@ -42,4 +42,9 @@ class ApartmentSerializer(BasicSerializer):
             "number",
             "inhabitants_id",
             "inhabitants",
+            "url",
         ]
+
+        extra_kwargs = {
+            "url": {"view_name": "api:apartment-detail", "lookup_field": "uuid"}
+        }

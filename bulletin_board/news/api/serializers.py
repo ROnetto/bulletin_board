@@ -22,7 +22,12 @@ class CommunityNewsSerializer(BasicSerializer):
             "title",
             "text",
             "expiration_date",
+            "url",
         ]
+
+    extra_kwargs = {
+        "url": {"view_name": "api:communitynews-detail", "lookup_field": "uuid"}
+    }
 
 
 class BuildingNewsSerializer(BasicSerializer):
@@ -41,4 +46,9 @@ class BuildingNewsSerializer(BasicSerializer):
             "title",
             "text",
             "expiration_date",
+            "url",
         ]
+
+    extra_kwargs = {
+        "url": {"view_name": "api:buildingnews-detail", "lookup_field": "uuid"}
+    }

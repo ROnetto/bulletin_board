@@ -3,7 +3,6 @@ from rest_framework import serializers
 
 from bulletin_board.buildings.models import Building
 from bulletin_board.communities.api.serializers import CommunitySerializer
-from bulletin_board.communities.models import Community
 from bulletin_board.core.serializers import BasicSerializer
 from bulletin_board.users.api.serializers import UserSerializer
 
@@ -11,15 +10,18 @@ User = get_user_model()
 
 
 class BuildingSerializer(BasicSerializer):
-    community_id = serializers.PrimaryKeyRelatedField(
-        queryset=Community.objects.all(), write_only=True
-    )
+    community_id = serializers.IntegerField(write_only=True)
     community = CommunitySerializer(many=False, read_only=True)
 
     inhabitants_id = serializers.PrimaryKeyRelatedField(
         queryset=User.objects.all(), write_only=True, many=True
     )
     inhabitants = UserSerializer(many=True, read_only=True)
+
+    admins_id = serializers.PrimaryKeyRelatedField(
+        queryset=User.objects.all(), write_only=True, many=True
+    )
+    admins = UserSerializer(many=True, read_only=True)
 
     def create(self, validated_data):
         inhabitants = []
@@ -47,4 +49,11 @@ class BuildingSerializer(BasicSerializer):
             "address",
             "inhabitants_id",
             "inhabitants",
+            "admins_id",
+            "admins",
+            "url",
         ]
+
+        extra_kwargs = {
+            "url": {"view_name": "api:building-detail", "lookup_field": "uuid"}
+        }
